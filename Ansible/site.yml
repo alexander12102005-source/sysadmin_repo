@@ -1,0 +1,18 @@
+---
+- name: Configure all VMs
+  hosts: all
+  become: true
+  roles:
+    - common
+
+- name: Configure proxy Nginx
+  hosts: proxy
+  become: true
+  roles:
+    - proxy_nginx
+
+- name: Configure backend Nginx
+  hosts: backend
+  become: true
+  roles:
+    - backend_nginx
